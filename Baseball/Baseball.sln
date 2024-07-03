@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{336D1846-F79A-44DE-8678-32AA58861505}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "..\UnitTest\UnitTest.vcxproj", "{0B3A8B06-E159-421C-9D5B-0397E228A865}"

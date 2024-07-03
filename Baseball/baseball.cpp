@@ -1,8 +1,17 @@
 #include <stdexcept>
 using namespace std;
 
+struct GuessResult {
+	bool solved;
+	int strikes;
+	int balls;
+};
+
 class Baseball {
 public:
+	explicit Baseball(const string& question) : question(question) {
+
+	}
 	bool isDuplicatedNumber(const std::string& guessNumber)
 	{
 		return guessNumber[0] == guessNumber[1]
@@ -24,7 +33,11 @@ public:
 			throw invalid_argument("Must not have the same number.");
 		}
 	}
-	void guess(const string& guessNumber) {
+	GuessResult guess(const string& guessNumber) {
 		assertIllegalArgument(guessNumber);
+		return { true, 3, 0 };
 	}
+
+private:
+	string question;
 };

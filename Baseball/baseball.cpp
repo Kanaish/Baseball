@@ -35,11 +35,20 @@ public:
 	}
 	GuessResult guess(const string& guessNumber) {
 		assertIllegalArgument(guessNumber);
+
+		int strikes = 0;
+
+		for (int i = 0; i < 3; ++i) {
+			if (question[i] == guessNumber[i]) {
+				strikes++;
+			}
+		}
+		
 		if (guessNumber == question) {
-			return { true, 3, 0 };
+			return { true, strikes, 0 };
 		}
 
-		return { false, 0, 0 };
+		return { false, strikes, 0 };
 	}
 
 private:

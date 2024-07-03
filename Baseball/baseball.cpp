@@ -37,18 +37,32 @@ public:
 		assertIllegalArgument(guessNumber);
 
 		int strikes = 0;
+		int balls = 0;
 
 		for (int i = 0; i < 3; ++i) {
 			if (question[i] == guessNumber[i]) {
 				strikes++;
 			}
 		}
+
+		if (question[0] == guessNumber[1])
+			balls++;
+		if (question[0] == guessNumber[2])
+			balls++;
+		if (question[1] == guessNumber[0])
+			balls++;
+		if (question[1] == guessNumber[2])
+			balls++;
+		if (question[2] == guessNumber[0])
+			balls++;
+		if (question[2] == guessNumber[1])
+			balls++;
 		
 		if (guessNumber == question) {
-			return { true, strikes, 0 };
+			return { true, strikes, balls };
 		}
 
-		return { false, strikes, 0 };
+		return { false, strikes, balls };
 	}
 
 private:

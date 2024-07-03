@@ -39,27 +39,21 @@ public:
 		int strikes = 0;
 		int balls = 0;
 
+		if (question == guessNumber)
+			return { true, 3, 0 };
+
 		for (int i = 0; i < 3; ++i) {
 			if (question[i] == guessNumber[i]) {
 				strikes++;
 			}
-		}
-
-		if (question[0] == guessNumber[1])
-			balls++;
-		if (question[0] == guessNumber[2])
-			balls++;
-		if (question[1] == guessNumber[0])
-			balls++;
-		if (question[1] == guessNumber[2])
-			balls++;
-		if (question[2] == guessNumber[0])
-			balls++;
-		if (question[2] == guessNumber[1])
-			balls++;
-		
-		if (guessNumber == question) {
-			return { true, strikes, balls };
+			else {
+				for (int j = 0; j < 3; ++j) {
+					if (i == j) continue;
+					if (question[i] == guessNumber[j]) {
+						balls++;
+					}
+				}
+			}
 		}
 
 		return { false, strikes, balls };
